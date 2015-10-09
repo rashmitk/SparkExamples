@@ -11,10 +11,13 @@ object WordCount {
 
  val logFileWords = logFileLines.flatMap(line => line.split(" "))
  
- //logFileWords.foreach(word => println("==> "+word))
+ // This is slower version of counting words than below solution
+ //val logFileWordCountSlower = logFileWords.map(word => (word, 1)).reduceByKey((x,y) => x + y)
+ //logFileWordCountSlower.foreach(word => println(word._1 +"-"+word._2) )
  
- val logFileWordCount = logFileWords.map(word => (word, 1)).reduceByKey((x,y) => x + y)
+ // This is faster version of counting words
+ val logFileWordCountFaster = logFileWords.map(word => (word, 1)).countByValue()
+ logFileWordCountFaster.foreach( word => println(word._1 +" "+word._2))
  
- logFileWordCount.foreach(word => println(word._1 +"-"+word._2) )
  }
 }
