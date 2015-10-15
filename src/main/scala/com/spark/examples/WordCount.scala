@@ -6,7 +6,8 @@ import org.apache.spark.SparkContext._
 object WordCount {
  def main(args: Array[String]) {
  val logFile = "src/data/inputfile.txt"
- val sc = new SparkContext("local", "WordCount", "C:\\spark-1.2.1",List("target/scala-2.10/sparkexamples_2.10-1.0.jar"))
+ //val sc = new SparkContext("local", "WordCount", "C:\\spark-1.5.1-hadoop2.6",List("target/scala-2.10/sparkexamples_2.10-1.0.jar"))
+   val sc = new SparkContext("local", "WordCount", "C:\\spark-1.2.1",List("target/scala-2.10/sparkexamples_2.10-1.0.jar"))
  val logFileLines = sc.textFile(logFile, 2).cache()
 
  val logFileWords = logFileLines.flatMap(line => line.split(" "))
