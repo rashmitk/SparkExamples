@@ -12,7 +12,7 @@ object LineCount151 {
  val logFile = "src/data/inputfile.txt"
  //val sc = new SparkContext("local", "LineCount", "C:\\spark-1.2.1",List("target/scala-2.10/sparkexamples_2.10-1.0.jar"))
  
- val conf = new SparkConf().setAppName("AccumulatorTest").setMaster("local")
+ val conf = new SparkConf().setAppName("AccumulatorTest").setMaster("local[*]")
  val sc = new SparkContext(conf)
  
  val logData = sc.textFile(logFile, 2).cache()

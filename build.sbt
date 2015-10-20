@@ -10,8 +10,9 @@ scalaVersion := "2.10.4"
 
 //scalaVersion := "2.10.4"
 
-libraryDependencies += "org.apache.spark" %% "spark-core" % "1.5.1"
+libraryDependencies += "org.apache.spark" %% "spark-core" % "1.5.1" % "provided"
 
+assemblyJarName in assembly := "sparkexamples.jar"
 
 
  
